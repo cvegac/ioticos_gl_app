@@ -1,11 +1,13 @@
-//requires
+//requires 
 const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const cors = require("cors");
 const colors = require("colors");
 
-require("dotenv").config();
+
+
+require('dotenv').config();
 
 //instances
 const app = express();
@@ -33,7 +35,7 @@ module.exports = app;
 
 //listener
 app.listen(process.env.API_PORT, () => {
-  console.log("API server listening on port "+process.env.API_PORT);
+  console.log("API server listening on port " + process.env.API_PORT);
 });
 
 
@@ -42,7 +44,7 @@ app.listen(process.env.API_PORT, () => {
 const mongoUserName = process.env.MONGO_USERNAME;
 const mongoPassword = process.env.MONGO_PASSWORD;
 const mongoHost = process.env.MONGO_HOST;
-const mongoPort = process.env.MONGO_EXT_PORT;
+const mongoPort = process.env.MONGO_PORT;
 const mongoDatabase = process.env.MONGO_DATABASE;
 
 var uri =
@@ -56,6 +58,8 @@ var uri =
   mongoPort +
   "/" +
   mongoDatabase;
+
+  console.log(uri);
 
 const options = {
   useNewUrlParser: true,
@@ -72,6 +76,8 @@ mongoose.connect(uri, options).then(
     console.log("✔ Mongo Successfully Connected!".green);
     console.log("*******************************".green);
     console.log("\n");
+    global.check_mqtt_superuser();
+
   },
   err => {
     console.log("\n");
@@ -82,3 +88,8 @@ mongoose.connect(uri, options).then(
     console.log(err);
   }
 );
+
+
+
+
+

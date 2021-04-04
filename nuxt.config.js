@@ -60,17 +60,22 @@ export default {
     baseURL: process.env.AXIOS_BASE_URL 
   },
   env:{
-    mqtt_prefix: process.env.MQTT_PREFIX,
-    mqtt_host: process.env.MQTT_HOST,
-    mqtt_port: process.env.MQTT_PORT
+   mqtt_prefix: process.env.MQTT_PREFIX,
+   mqtt_host: process.env.MQTT_HOST,
+   mqtt_port: process.env.MQTT_PORT
   },
-  server:{
+
+  server: {
     port: 3000, // default: 3000
-    host: '0.0.0.0' // default: localhost
+    host: '0.0.0.0', // default: localhost
   },
-  serverMiddleware:{ 
+
+  serverMiddleware: {
     '/api': '~/api'
   },
+
+  
+
   /*
   ** Build configuration
   */

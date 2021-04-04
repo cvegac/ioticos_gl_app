@@ -17,6 +17,9 @@ var client;
 //******************
 //**** A P I *******
 //******************
+
+
+
 //DEVICE CREDENTIALS WEBHOOK
 router.post("/getdevicecredentials", async (req, res) => {
   try {
@@ -288,7 +291,7 @@ function startMqttClient() {
     encoding: "utf8"
   };
 
-  client = mqtt.connect("mqtt://" + "localhost", options);
+  client = mqtt.connect("mqtt://" + process.env.EMQX_NODE_HOST, options);
 
   client.on("connect", function() {
     console.log("MQTT CONNECTION -> SUCCESS;".green);
@@ -369,3 +372,6 @@ setTimeout(() => {
 }, 3000);
 
 module.exports = router;
+
+
+
