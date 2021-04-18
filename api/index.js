@@ -1,11 +1,9 @@
-//requires 
+//requires
 const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const cors = require("cors");
 const colors = require("colors");
-
-
 
 require('dotenv').config();
 
@@ -35,7 +33,7 @@ module.exports = app;
 
 //listener
 app.listen(process.env.API_PORT, () => {
-  console.log("API server listening on port " + process.env.API_PORT);
+  console.log("API server listening on port 3001");
 });
 
 
@@ -59,8 +57,6 @@ var uri =
   "/" +
   mongoDatabase;
 
-  console.log(uri);
-
 const options = {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -76,8 +72,6 @@ mongoose.connect(uri, options).then(
     console.log("✔ Mongo Successfully Connected!".green);
     console.log("*******************************".green);
     console.log("\n");
-    global.check_mqtt_superuser();
-
   },
   err => {
     console.log("\n");
@@ -88,8 +82,3 @@ mongoose.connect(uri, options).then(
     console.log(err);
   }
 );
-
-
-
-
-
