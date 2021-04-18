@@ -34,7 +34,7 @@
   </div>
 
   <div v-else>
-    Select a Device...
+    Select a device...
   </div>
 
 </template>
