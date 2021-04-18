@@ -44,10 +44,7 @@ export default {
   middleware: 'authenticated',
   name: 'Dashboard',
   data() {
-    return {
-
-
-    } 
+    return {} 
   },
 
   mounted() {
